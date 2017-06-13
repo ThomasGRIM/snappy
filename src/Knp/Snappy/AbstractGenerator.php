@@ -401,7 +401,7 @@ abstract class AbstractGenerator implements GeneratorInterface
      */
     protected function buildCommand($binary, $input, $output, array $options = array())
     {
-        $command = $binary;
+        $command = 'xvfb-run -a -s "-screen 0 1024x768x24" '.$binary;
         $escapedBinary = escapeshellarg($binary);
         if (is_executable($escapedBinary)) {
             $command = $escapedBinary;
